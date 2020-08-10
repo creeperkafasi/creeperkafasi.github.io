@@ -1,0 +1,26 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    height: 100%;
+    width: auto;
+    font-family: "Roboto";
+}
+header{
+    background-color:#ff9f94;
+    height: auto;
+    padding: 10px;
+    padding-bottom: 20px;
+    padding-top: 15px;
+    text-align: center;
+    border-width: 10px;
+    border-bottom: solid;
+    border-color: linear-gradient(#000000,#69696986);
+    
+}
+.headtext{
+    font-size: 30px;
+}
+body{
+    
+    background-image: linear-gradient(180deg ,rgba(255,159,148,1) 15%, rgba(0,212,255,1) 60%);
+}
