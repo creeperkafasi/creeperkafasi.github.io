@@ -58,3 +58,14 @@ body{
     padding-left: 15px;
     padding-right: 15px;
 }
+.strokewarning{
+    background-color: #00000000;
+    margin-top: 20px;
+    font-size: 30px;
+    text-decoration-style: none;
+    color: red;
+}
+.normaltext{
+    font-size: 25px;
+    background-color: #00000000;
+}
