@@ -44,14 +44,3 @@ body{
     margin-right: 10px;
     font-size: 30px;
 }
-.title-main{
-    text-align: center;
-    color: #003632;
-    margin-top: 1%;
-}
-.title-main-inside{
-    background-color:#ff3a3a3b;
-    padding: 2px;
-    padding-left: 15px;
-    padding-right: 15px;
-}
