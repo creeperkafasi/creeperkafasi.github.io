@@ -1,12 +1,3 @@
-var MouseX;
-var MouseY;
-
-
-window.addEventListener("mousemove",function(e) {
-    MouseX=e.clientX;
-    MouseY=e.clientY;
-});
-
 var height;
 function anim1() {
     var interval = setInterval(frame, 5);
