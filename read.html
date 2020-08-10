@@ -35,12 +35,20 @@
             <option value="4">Episode 4</option>
         </select>
         <a class="pageinputtext">Page Number:</a>
-        <input type="text" class="pageinput" oninput="page(this)">
+        <input type="text" class="pageinput" id="input" oninput="page(this)">
         <img src="icons/next.svg" alt="next" class="pagebuttons" onclick="next()">
     </div>
         
+    <div>
+        <img src="episodes/1/1.png" alt="Failed to load page" id="page" title="Page 1">
+        <img id="comment" class="comment"></img>
+    </div>
     
-    <img src="episodes/1/1.png" alt="Failed to load page" id="page" title="Page 1">
-    <p id="comment"></p>
+    
+    <script>
+        document.getElementById("input").value = 1;
+        document.getElementById("comment").src = "episodes/"+epNum+"/"+pageNum+"c.png";
+        document.getElementById("comment").style.width = screen.availWidth+"px";
+    </script>
 </body>
 </html>

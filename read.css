@@ -76,3 +76,8 @@ body{
     vertical-align: 100%;
     height: 30px;
 }
+
+.comment{
+    object-fit: contain;
+    margin-top: 0px;
+}
