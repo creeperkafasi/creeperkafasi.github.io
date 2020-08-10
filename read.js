@@ -7,6 +7,7 @@ function episode(selector) {
     document.getElementById("page").src = "episodes/"+epNum+"/1.png";
     document.getElementById("comment").src = "episodes/"+epNum+"/1c.png";
     console.log("Switched to episode " + epNum);
+    pageNum=0
 }
 
 function prev(){
