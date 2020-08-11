@@ -1,0 +1,12 @@
+.title{
+    font-family: Roboto;
+    font-size: 200%;
+    border-radius: 5px;
+    border: solid;
+    width: fit-content;
+    align-self: center;
+}
+
+header{
+    align-items: center;
+}
