@@ -1,11 +1,24 @@
+body {
+    margin: 0px;
+    background-color: #a71e27;
+}
+
 #particles-js {
-    position: absolute;
     width: 100%;
-    height: auto;
-    background-color: #b61924;
+    height: 500px;
     background-image: url("");
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: 50% 50%;
     margin: 0px;
+    top: 0px;
+    bottom: 0px;
+}
+
+#container {
+    position: relative;
+}
+
+.title {
+    position: absolute;
+    top: 0px;
 }
