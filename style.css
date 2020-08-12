@@ -1,6 +1,6 @@
 body {
     margin: 0px;
-    background-color: #a71e27;
+    background-color: #1f1f1f;
 }
 
 #particles-js {
@@ -14,9 +14,7 @@ body {
     bottom: 0px;
 }
 
-.particles {
-    height: 500px;
-}
+.particles {}
 
 #container {
     position: relative;
