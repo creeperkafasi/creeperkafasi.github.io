@@ -14,8 +14,6 @@ body {
     bottom: 0px;
 }
 
-.particles {}
-
 #container {
     position: relative;
 }
@@ -23,4 +21,6 @@ body {
 .title {
     position: absolute;
     top: 0px;
+    font-family: Rancho;
+    font-size: 80px;
 }
