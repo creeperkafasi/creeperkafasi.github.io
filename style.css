@@ -1,11 +1,12 @@
 body {
     margin: 0px;
     background-color: #1f1f1f;
+    text-align: center;
 }
 
 #particles-js {
     width: 100%;
-    height: auto;
+    height: 100%;
     background-image: url("");
     background-repeat: no-repeat;
     background-size: cover;
@@ -23,4 +24,5 @@ body {
     top: 0px;
     font-family: Rancho;
     font-size: 80px;
+    z-index: 10;
 }
