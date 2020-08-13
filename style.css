@@ -27,8 +27,8 @@ body {
     top: 0px;
     font-family: Rancho;
     width: 100%;
-    font-size: 50px;
-    height: 60px;
+    font-size: 70px;
+    height: 80px;
     z-index: 10;
     padding-top: 10px;
     text-align: center;
@@ -40,9 +40,9 @@ body {
 }
 
 .title:hover {
-    height: 100px;
+    height: 120px;
     border-bottom: solid #1d1d1f 3px;
-    padding-bottom: 8px;
+    padding-bottom: 10px;
 }
 
 .navbar {
@@ -92,17 +92,27 @@ footer {
 }
 
 .info-title {
-    font-family: "Dancing Script";
-    font-size: 80px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 50px;
+    width: 100%;
+}
+
+.info {
     position: absolute;
     top: 3%;
+    text-align: center;
     z-index: 15;
     width: 100%;
-    text-align: center;
     color: #fff;
+    font-family: 'IBM Plex Mono', monospace;
 }
 
 .info-title .text a {
     width: fit-content;
     height: fit-content;
+}
+
+.info-text {
+    padding-top: 1.5%;
+    font-size: 20px;
 }
