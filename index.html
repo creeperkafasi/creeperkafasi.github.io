@@ -9,26 +9,41 @@
     <script src="script.js"></script>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rancho&effect=3d-float">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Dancing+Script">
 </head>
 
 <body>
     <div id="container">
 
-        <div class="title font-effect-3d-float">
-            <a class="titletext">creeperkafasipw</a>
+        <div class="title font-effect-3d-float" id="title">
+            <a class="titletext">creeperkafasipw's cool website</a>
+            <div class="navbar">
+                <div class="nav-block">About</div>
+                <div class="nav-block">Github</div>
+                <div class="nav-block">Contact</div>
+            </div>
         </div>
 
         <div class="particles">
-            <div id="particle-div"></div>
+            <div id="particle-div">
+                <div class="info-title">
+                    <a class="text">
+                        Who the fuck am I?
+                    </a>
+
+                </div>
+            </div>
         </div>
-
-
-
+        <footer>
+            website by creeperkafasipw
+        </footer>
     </div>
 
 
     <script>
         particlesJS.load('particle-div', 'particles.json');
+        document.getElementById("title").style.width = (window.width - 50) + "px";
     </script>
 </body>
 
