@@ -66,6 +66,12 @@ body {
     padding-left: 12px;
     padding-right: 12px;
     min-width: 8%;
+    text-decoration: none;
+}
+
+.nav-block a {
+    text-decoration: none;
+    color: #fff;
 }
 
 .title:hover .navbar {
@@ -115,4 +121,11 @@ footer {
 .info-text {
     padding-top: 1.5%;
     font-size: 20px;
+    position: relative;
+}
+
+.info-text-text {
+    position: absolute;
+    width: 40%;
+    right: 30%;
 }
