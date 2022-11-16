@@ -37,20 +37,43 @@
 
 <body>
 
-    <div id="avatar">
-        <img src="https://avatars.githubusercontent.com/u/49831545" alt="">
-    </div>
-    <div id="name">
+    <div class="content center">
+        <div class="avatar shadow glow">
+            <img src="https://avatars.githubusercontent.com/u/49831545" alt="">
+        </div>
         <h1 onload="typeWriter()">Deniz Tunç</h1>
         <h2>@creeperkafasi</h2>
+
+        <div id="socials-container">
+            <div id="socials" class="shadow">
+                <a href="https://reddit.com/u/creeperkafasipw" target="_blank"><i class="fab fa-reddit"></i> Reddit</a>
+                <a href="https://github.com/creeperkafasi" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+            </div>
+        </div>
+        <div class="show-more-down-arrow">
+            <i onclick="this.scrollIntoView({behavior:'smooth'})" class="fa-solid fa-chevron-down"></i>
+        </div>
+
+        <div class="lorem">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, voluptatem aliquid earum ipsum
+            repellendus, temporibus amet corporis libero eum labore reiciendis cum ex quis adipisci quisquam quaerat
+            culpa natus tempore laboriosam doloremque? Expedita, dolores maiores rem ab suscipit tempora porro corrupti
+            cupiditate, dicta sequi repellendus ratione! Blanditiis iste dolorum autem, error accusantium unde saepe!
+            Rerum error libero magnam minima autem asperiores rem, repellat, nisi architecto sunt dolore et sint quam
+            quia dicta iste, perspiciatis temporibus mollitia dolorum. Similique fugiat velit, iure provident inventore
+            nostrum possimus tenetur nisi, vitae optio autem numquam laboriosam fuga enim suscipit. Provident mollitia
+            optio minima nesciunt ipsum explicabo ut corporis natus voluptate et? Ipsum, quasi saepe. Magni consequuntur
+            voluptas deserunt esse doloribus sunt vero architecto! Fugit maiores corrupti quis sed nesciunt. Illum
+            inventore incidunt quam dolores voluptate fuga nihil corporis! Tenetur ipsa commodi reprehenderit ipsum,
+            unde labore cupiditate distinctio odio facere sint fuga enim? Eaque ab rem quasi quis quos nam repudiandae
+            sequi! Accusamus voluptates adipisci illum quos atque cum eaque neque, ad ducimus nihil rem maxime debitis
+            quas eius non, consectetur, fugit vel excepturi esse dolores! At perferendis et similique magni aliquid
+            culpa voluptatem esse unde neque, obcaecati eius incidunt laborum iusto non libero harum.
+        </div>
+
     </div>
 
-    <div id="socials-container">
-        <div id="socials">
-            <a href="https://reddit.com/u/creeperkafasipw"><i class="fab fa-reddit"></i> Reddit</a>
-            <a href="https://github.com/creeperkafasi"><i class="fab fa-github"></i> GitHub</a>
-        </div>
-    </div>
+
 
     <script>
         var i = -1;
@@ -65,12 +88,12 @@
 
         function typeWriter() {
             if (i === -1) {
-                document.querySelector("#name > h1").textContent = "";
+                document.querySelector(".content > h1").textContent = "";
                 i++;
                 typeWriter();
             }
             else if (i < txt.length) {
-                document.querySelector("#name > h1").textContent += txt.charAt(i);
+                document.querySelector(".content > h1").textContent += txt.charAt(i);
                 i++;
                 setTimeout(typeWriter, speed + Math.random() * 50);
             }
@@ -84,22 +107,68 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
 
     <style>
+        :root {
+            --ctp-text: var(--ctp-mocha-text);
+            --ctp-base: var(--ctp-mocha-base);
+            --ctp-crust: var(--ctp-mocha-crust);
+            --ctp-surface0: var(--ctp-mocha-surface0);
+            --ctp-surface1: var(--ctp-mocha-surface1);
+            --ctp-mauve: var(--ctp-mocha-mauve);
+            --ctp-peach: var(--ctp-mocha-peach);
+            --ctp-yellow: var(--ctp-mocha-yellow);
+        }
+
+        @media (prefers-color-scheme: light) {
+            :root {
+                --ctp-text: var(--ctp-latte-text);
+                --ctp-base: var(--ctp-latte-base);
+                --ctp-crust: var(--ctp-latte-crust);
+                --ctp-surface0: var(--ctp-latte-surface0);
+                --ctp-surface1: var(--ctp-latte-surface1);
+                --ctp-mauve: var(--ctp-latte-mauve);
+                --ctp-peach: var(--ctp-latte-peach);
+                --ctp-yellow: var(--ctp-latte-yellow);
+            }
+        }
+
         body {
-            color: var(--ctp-mocha-text);
-            background: var(--ctp-mocha-base);
+            color: var(--ctp-text);
+            background: var(--ctp-base);
             font-family: "Iosevka Web";
         }
 
-        #avatar>img {
+        .content {
+            width: 35rem;
+            max-width: 90vw;
+            margin: 0 auto;
+        }
+
+        .center {
+            display: grid;
+            place-items: center;
+            text-align: center;
+        }
+
+        .shadow {
+            filter: drop-shadow(0 0 0.5rem var(--ctp-crust));
+        }
+
+        .avatar>img {
             height: 10rem;
             border-radius: 50%;
             display: block;
-            margin: 3rem auto 0rem;
+            margin-top: 1.5rem;
+            transition: filter 0.5s;
+            cursor: grab;
+        }
+
+        .avatar>img:hover {
+            filter: drop-shadow(0 0 0.5rem var(--ctp-yellow));
         }
 
         h1 {
-            width: 100%;
-            text-align: center;
+            /* width: 100%; */
+            /* text-align: center; */
             font-size: 4rem;
             font-weight: 200;
         }
@@ -127,14 +196,14 @@
             }
 
             50% {
-                border-color: var(--ctp-mocha-text);
+                border-color: var(--ctp-text);
             }
         }
 
 
         h2 {
-            width: 100%;
-            text-align: center;
+            /* width: 100%; */
+            /* text-align: center; */
             margin-top: -1.5rem;
             font-size: 2rem;
             font-weight: 100;
@@ -142,9 +211,9 @@
 
 
         #socials-container {
-            width: 100%;
-            display: flex;
-            justify-content: center;
+            /* width: 100%; */
+            /* display: flex;
+            justify-content: center; */
             margin-top: 1rem;
         }
 
@@ -159,7 +228,7 @@
 
         #socials>a {
             text-decoration: none;
-            color: var(--ctp-mocha-text);
+            color: var(--ctp-text);
             height: 4rem;
             border-radius: 1rem;
             font-size: 1.5rem;
@@ -169,17 +238,26 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            background: var(--ctp-mocha-surface0);
-            transition: background 0.3s ease-in-out;
+            background: var(--ctp-surface0);
+            transition: 0.3s ease-in-out;
         }
 
         #socials>a:hover {
-            background: var(--ctp-mocha-surface1);
+            background: var(--ctp-surface1);
+            transform: scale(1.01);
         }
 
         #socials>a>i {
             margin-right: 2rem;
             font-size: 2.75rem;
+        }
+
+        #socials>a:nth-child(1) {
+            color: var(--ctp-peach);
+        }
+
+        #socials>a:nth-child(2) {
+            color: var(--ctp-mauve);
         }
 
         @media screen and (max-width: 600px) {
@@ -189,6 +267,42 @@
 
             #socials {
                 grid-template-columns: 1fr;
+            }
+        }
+
+        .show-more-down-arrow {
+            /* width: 100%; */
+            padding: 0.1rem 0;
+            /* text-align: center; */
+            font-size: 2rem;
+            height: 3rem;
+        }
+
+        .show-more-down-arrow>i {
+            position: relative;
+        }
+
+        .show-more-down-arrow>i:hover {
+            animation: bounce 1s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0% {
+                top: 0px;
+            }
+
+            50% {
+                top: 0.3rem;
+            }
+
+            100% {
+                top: 0px;
+            }
+        }
+
+        @media screen and (min-height: 700px) {
+            .show-more-down-arrow {
+                display: none;
             }
         }
     </style>
