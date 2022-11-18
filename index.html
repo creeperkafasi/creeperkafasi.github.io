@@ -37,21 +37,36 @@
 
 <body>
 
-    <div class="content center">
+    <div class="header ">
         <div class="avatar shadow glow">
-            <img src="https://avatars.githubusercontent.com/u/49831545" alt="" draggable="false">
+            <img src="https://avatars.githubusercontent.com/u/49831545" alt="" draggable="false"
+                oncontextmenu="return false">
         </div>
         <h1 onload="typeWriter()">Deniz Tunç</h1>
         <h2>@creeperkafasi</h2>
+        <a class="socials reddit shadow" href="https://reddit.com/u/creeperkafasipw" target="_blank"><i
+                class="fab fa-reddit"></i> Reddit</a>
+        <a class="socials github shadow" href="https://github.com/creeperkafasi" target="_blank"><i
+                class="fab fa-github"></i> GitHub</a>
+    </div>
 
-        <div id="socials-container">
-            <div id="socials" class="shadow">
-                <a href="https://reddit.com/u/creeperkafasipw" target="_blank"><i class="fab fa-reddit"></i> Reddit</a>
-                <a href="https://github.com/creeperkafasi" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-            </div>
-        </div>
+    <div class="content center">
         <div class="show-more-down-arrow">
             <i onclick="this.scrollIntoView({behavior:'smooth'})" class="fa-solid fa-chevron-down"></i>
+        </div>
+
+        <div class="card about-me">
+            <h2>About me</h2>
+            <p>
+                <span>Hi! I'm Deniz, a student and a full-stack developer. I am proficient in</span>
+
+                <span>🦀 Rust</span>
+                <span>🐦 Flutter</span>
+                <span>💻 JavaScript</span>
+                <span>🐍 Python</span>
+                <span>🪟 C#</span>
+                <span>☕ Java</span>
+            </p>
         </div>
 
         <div class="lorem">
@@ -88,12 +103,12 @@
 
         function typeWriter() {
             if (i === -1) {
-                document.querySelector(".content > h1").textContent = "";
+                document.querySelector(".header > h1").textContent = "";
                 i++;
                 typeWriter();
             }
             else if (i < txt.length) {
-                document.querySelector(".content > h1").textContent += txt.charAt(i);
+                document.querySelector(".header > h1").textContent += txt.charAt(i);
                 i++;
                 setTimeout(typeWriter, speed + Math.random() * 50);
             }
@@ -139,6 +154,80 @@
             font-family: "Iosevka Web";
         }
 
+        .header {
+            display: grid;
+            grid-template-areas:
+                '🖼️ 🖼️'
+                '✏️ ✏️'
+                '👋 👋'
+                '🧡 💜';
+            width: 35rem;
+            max-width: 90vw;
+            margin: 0 auto;
+            justify-items: center;
+            text-align: center;
+            grid-template-rows: 11fr minmax(6fr, min-content) 5fr repeat(auto-fill, 8fr);
+        }
+
+        @media screen and (max-width: 500px) {
+            .header {
+                grid-template-areas:
+                    '🖼️'
+                    '✏️'
+                    '👋'
+                    '🧡'
+                    '💜';
+            }
+        }
+
+        .header>* {
+            margin: 0;
+        }
+
+        .header>.avatar {
+            grid-area: 🖼️;
+        }
+
+        .header>h1 {
+            grid-area: ✏️;
+
+            font-size: 4rem;
+            font-weight: 200;
+        }
+
+        .header>h1::after {
+            content: "";
+            padding-left: 0.5rem;
+            border-right: 0.15rem solid;
+            animation: blink-caret .75s step-end infinite;
+        }
+
+        /* media query for reduced animations*/
+        @media (prefers-reduced-motion: reduce) {
+            .header>h1::after {
+                animation: none;
+            }
+        }
+
+        .header>h2 {
+            grid-area: 👋;
+            /* width: 100%; */
+            /* text-align: center; */
+            /* margin-top: -1.5rem; */
+            font-size: 2rem;
+            font-weight: 100;
+        }
+
+
+        .header>.reddit {
+            grid-area: 🧡;
+        }
+
+        .header>.github {
+            grid-area: 💜;
+        }
+
+
         .content {
             width: 35rem;
             max-width: 90vw;
@@ -151,6 +240,33 @@
             text-align: center;
         }
 
+        .card {}
+
+        .card h2 {
+            font-size: 2rem;
+            font-weight: 900;
+        }
+
+        .card p {
+            font-size: 1.2rem;
+            font-weight: 300;
+            width: 80%;
+            margin: 0 auto;
+            display: grid;
+            grid-template-rows: 4rem;
+            grid-template-columns: 1fr 1fr;
+            /* grid-template-rows: auto; */
+        }
+
+        .card p span:first-child {
+            grid-column: 1/3;
+        }
+
+        .card p span{
+            display: inline-block;
+        }
+
+
         .shadow {
             filter: drop-shadow(0 0 0.5rem var(--ctp-crust));
         }
@@ -159,7 +275,7 @@
             height: 10rem;
             border-radius: 50%;
             display: block;
-            margin-top: 1.5rem;
+            margin-top: 1rem;
             transition: 1s;
             cursor: grab;
             user-select: none;
@@ -220,26 +336,7 @@
             }
         }
 
-        h1 {
-            /* width: 100%; */
-            /* text-align: center; */
-            font-size: 4rem;
-            font-weight: 200;
-        }
 
-        h1::after {
-            content: "";
-            padding-left: 0.5rem;
-            border-right: 0.15rem solid;
-            animation: blink-caret .75s step-end infinite;
-        }
-
-        /* media query for reduced animations*/
-        @media (prefers-reduced-motion: reduce) {
-            h1::after {
-                animation: none;
-            }
-        }
 
         /* The typewriter cursor effect */
         @keyframes blink-caret {
@@ -255,13 +352,6 @@
         }
 
 
-        h2 {
-            /* width: 100%; */
-            /* text-align: center; */
-            margin-top: -1.5rem;
-            font-size: 2rem;
-            font-weight: 100;
-        }
 
 
         #socials-container {
@@ -280,7 +370,7 @@
             width: max-content;
         }
 
-        #socials>a {
+        .socials {
             text-decoration: none;
             color: var(--ctp-text);
             height: 4rem;
@@ -296,21 +386,21 @@
             transition: 0.3s ease-in-out;
         }
 
-        #socials>a:hover {
+        .socials:hover {
             background: var(--ctp-surface1);
             transform: scale(1.01);
         }
 
-        #socials>a>i {
+        .socials>i {
             margin-right: 2rem;
             font-size: 2.75rem;
         }
 
-        #socials>a:nth-child(1) {
+        .socials.reddit {
             color: var(--ctp-peach);
         }
 
-        #socials>a:nth-child(2) {
+        .socials.github {
             color: var(--ctp-mauve);
         }
 
