@@ -81,7 +81,7 @@
                 </a>
                 <p>This is how my Linux desktop looks like;</p>
 
-                <img src="./res/dotfiles.png" alt="" width="90%">
+                <img src="./res/dotfiles.webp" alt="" width="90%">
 
             </div>
 
@@ -90,7 +90,7 @@
                 <p>You can take a peek at my desktop using;</p>
                 <a href="https://deniz.is-a.dev/webrice">
                     <h3>-Webrice-</h3>
-                    <img src="./res/webrice.png" alt="" width="90%">
+                    <img src="./res/webrice.webp" alt="" width="90%">
                 </a>
 
 
@@ -113,7 +113,7 @@
                 </p>
                 <p>
                     Just paste;
-                <pre class="selectable">import xdotool from "https://deno.land/x/xdotool/mod.ts";</pre> <br>
+                <p class="selectable pre">import xdotool from "https://deno.land/x/xdotool/mod.ts";</p> <br><br>
                 to import it into your deno.js project.
                 </p>
             </div>
@@ -351,16 +351,15 @@
             /* grid-template-rows: auto; */
         }
 
-        pre {
+        .pre {
             box-sizing: border-box;
-            display: inline;
-            line-break: anywhere;
             font-size: 0.9rem;
             font-weight: 300;
             width: min(20rem, 80%);
             padding: 0.2rem;
+            line-break: anywhere;
             background-color: var(--ctp-surface0);
-            overflow: scroll;
+            overflow-x: scroll;
         }
 
         .about-me p {
