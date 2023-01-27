@@ -52,13 +52,13 @@
 
     <div class="content center">
         <div class="show-more-down-arrow">
-            <i onclick="this.scrollIntoView({behavior:'smooth'})" class="fa-solid fa-chevron-down"></i>
+            <a href="#about"><i class="fa-solid fa-chevron-down"></i></a>
         </div>
 
-        <div class="card about-me">
-            <h2>About me</h2>
+        <div id="about" class="card about-me">
+            <h2>---About Me---</h2>
             <p>
-                <span>Hi! I'm Deniz, a student and a full-stack developer. I am proficient in</span>
+                <span>Hi! I'm Deniz, a student and a full-stack developer. I am proficient in;</span>
 
                 <span>🦀 Rust</span>
                 <span>🐦 Flutter</span>
@@ -69,7 +69,57 @@
             </p>
         </div>
 
-        <div class="lorem">
+        <div class="show-more-down-arrow">
+            <a href="#projects"><i class="fa-solid fa-chevron-down"></i></a>
+        </div>
+
+        <div id="projects" class="card projects">
+            <h2>---Projects---</h2>
+            <div class="project">
+                <a href="https://github.com/creeperkafasi/dotfiles">
+                    <h3>-Dotfiles-</h3>
+                </a>
+                <p>This is how my Linux desktop looks like;</p>
+
+                <img src="./res/dotfiles.png" alt="" width="90%">
+
+            </div>
+
+            <div class="project">
+
+                <p>You can take a peek at my desktop using;</p>
+                <a href="https://deniz.is-a.dev/webrice">
+                    <h3>-Webrice-</h3>
+                    <img src="./res/webrice.png" alt="" width="90%">
+                </a>
+
+
+                <p>Webrice is my attempt of recreating my i3wm config using html and css! Drop a star at the repository
+                    if you like it.</p>
+            </div>
+
+            <div class="project">
+                <a href="https://github.com/creeperkafasi/xdotoolJS">
+                    <h3>-XdotoolJS-</h3>
+                </a>
+                <p>
+                    XdotoolJS is a simple deno.js wrapper of jordansissel's X11 automation program, <a
+                        href="https://github.com/jordansissel/xdotool">xdotool.</a>
+                </p>
+                <p>
+                    You can check out the repository on <a href="https://github.com/creeperkafasi/xdotoolJS">GitHub</a>
+                    <br>
+                    Or you can get the package from <a href="https://deno.land/x/xdotool">deno.land</a>
+                </p>
+                <p>
+                    Just paste;
+                <pre class="selectable">import xdotool from "https://deno.land/x/xdotool/mod.ts";</pre> <br>
+                to import it into your deno.js project.
+                </p>
+            </div>
+        </div>
+
+        <div class="lorem" style="display: none;">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, voluptatem aliquid earum ipsum
             repellendus, temporibus amet corporis libero eum labore reiciendis cum ex quis adipisci quisquam quaerat
             culpa natus tempore laboriosam doloremque? Expedita, dolores maiores rem ab suscipit tempora porro corrupti
@@ -86,8 +136,17 @@
             culpa voluptatem esse unde neque, obcaecati eius incidunt laborum iusto non libero harum.
         </div>
 
-    </div>
 
+
+    </div>
+    <div class="footer">
+        <p>
+            © 2023 Deniz Tunç <br>
+            Made with <i class="fa-solid fa-code"></i> and <i class="fa-solid fa-heart"></i>
+            by <a href="https://deniz.is-a.dev" class="deniztunc">Deniz Tunç</a>
+        </p>
+
+    </div>
 
 
     <script>
@@ -115,6 +174,23 @@
         }
         if (!checkMobile() || !window.matchMedia("(prefers-reduced-motion: reduce)"))
             typeWriter();
+
+        const selectables = document.querySelectorAll('.selectable')
+        selectables.forEach(selectable => {
+            selectable.title = 'Click to select'
+            selectable.addEventListener('click', () => {
+                if (document.selection) {
+                    const range = document.body.createTextRange();
+                    range.moveToElementText(selectable);
+                    range.select();
+                } else if (window.getSelection) {
+                    const range = document.createRange();
+                    range.selectNode(selectable);
+                    window.getSelection().removeAllRanges();
+                    window.getSelection().addRange(range);
+                }
+            })
+        })
     </script>
 
     <link rel="stylesheet" href="https://unpkg.com/@catppuccin/palette@0.1.4/css/catppuccin.css">
@@ -132,6 +208,7 @@
             --ctp-peach: var(--ctp-mocha-peach);
             --ctp-yellow: var(--ctp-mocha-yellow);
             --ctp-red: var(--ctp-mocha-red);
+            --ctp-blue: var(--ctp-mocha-blue);
         }
 
         @media (prefers-color-scheme: light) {
@@ -145,13 +222,25 @@
                 --ctp-peach: var(--ctp-latte-peach);
                 --ctp-yellow: var(--ctp-latte-yellow);
                 --ctp-red: var(--ctp-latte-red);
+                --ctp-blue: var(--ctp-latte-blue);
             }
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
+            padding: 0;
+            margin: 0;
             color: var(--ctp-text);
             background: var(--ctp-base);
             font-family: "Iosevka Web";
+        }
+
+        a {
+            color: var(--ctp-blue);
+            text-decoration: none;
         }
 
         .header {
@@ -240,32 +329,53 @@
             text-align: center;
         }
 
-        .card {}
+        .card {
+            margin: 1rem;
+        }
 
         .card h2 {
             font-size: 2rem;
             font-weight: 900;
         }
 
+        .card h3 {
+            font-size: 1.6rem;
+            font-weight: 700;
+        }
+
         .card p {
             font-size: 1.2rem;
             font-weight: 300;
             width: 80%;
-            margin: 0 auto;
-            display: grid;
-            grid-template-rows: 4rem;
-            grid-template-columns: 1fr 1fr;
+            margin: 1rem auto;
             /* grid-template-rows: auto; */
         }
 
-        .card p span:first-child {
+        pre {
+            box-sizing: border-box;
+            display: inline;
+            line-break: anywhere;
+            font-size: 0.9rem;
+            font-weight: 300;
+            width: min(20rem, 80%);
+            padding: 0.2rem;
+            background-color: var(--ctp-surface0);
+            overflow: scroll;
+        }
+
+        .about-me p {
+            display: grid;
+            grid-template-rows: 4rem;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .about-me p span:first-child {
             grid-column: 1/3;
         }
 
-        .card p span{
+        .about-me p span {
             display: inline-block;
         }
-
 
         .shadow {
             filter: drop-shadow(0 0 0.5rem var(--ctp-crust));
@@ -428,6 +538,20 @@
 
         .show-more-down-arrow>i:hover {
             animation: bounce 1s ease-in-out infinite;
+        }
+
+        .footer {
+            margin: 0;
+            margin-top: 2rem;
+            background-color: var(--ctp-crust);
+            width: 100%;
+            height: 5rem;
+            text-align: end;
+        }
+
+        .footer p {
+            padding: 1rem;
+            font-weight: 200;
         }
 
         @keyframes bounce {
