@@ -118,6 +118,12 @@
                 </p>
             </div>
         </div>
+        
+        <div id="books" class="card reading">
+            <h2>---Reading---</h2>
+            <p>Here are the books I'm currently reading:</p>
+            <ul id="book-list"></ul>
+        </div>
 
         <div class="lorem" style="display: none;">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, voluptatem aliquid earum ipsum
@@ -140,6 +146,9 @@
 
     </div>
     <div class="footer">
+        <p>
+            This website was tested for firefox; chromium based browsers may have some layout issues.
+        </p>
         <p>
             © 2023 Deniz Tunç <br>
             Made with <i class="fa-solid fa-code"></i> and <i class="fa-solid fa-heart"></i>
@@ -191,6 +200,18 @@
                 }
             })
         })
+
+        const bookList = document.querySelector('ul#book-list');
+        fetch("https://openlibrary.org/people/creeper_kafas_/books/currently-reading.json")
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                data.reading_log_entries.forEach(item => {
+                    const li = document.createElement('li');
+                    li.innerHTML = `<a href="https://openlibrary.org${item.work.key}">${item.work.title}</a>`;
+                    bookList.appendChild(li);
+                });
+            });
     </script>
 
     <link rel="stylesheet" href="https://unpkg.com/@catppuccin/palette@0.1.4/css/catppuccin.css">
@@ -362,14 +383,27 @@
             overflow-x: scroll;
         }
 
+        .reading ul {
+            display: grid;
+            grid-template-rows: min-content;
+            grid-template-columns: 1fr 1fr;
+            margin: 1rem;
+        }
+
+
+        .reading li::marker{
+            content: "📖 ";
+        }
+
         .about-me p {
             display: grid;
-            grid-template-rows: 4rem;
+            grid-template-rows: min-content;
             grid-template-columns: 1fr 1fr;
         }
 
         .about-me p span:first-child {
             grid-column: 1/3;
+            padding-bottom: 1rem;
         }
 
         .about-me p span {
@@ -544,13 +578,18 @@
             margin-top: 2rem;
             background-color: var(--ctp-crust);
             width: 100%;
-            height: 5rem;
-            text-align: end;
+            height: 7rem;
         }
-
+        
         .footer p {
+            float: right;
             padding: 1rem;
             font-weight: 200;
+        }
+
+        .footer p:nth-child(1) {
+            float: left;
+            font-size: 0.9rem;
         }
 
         @keyframes bounce {
