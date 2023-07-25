@@ -9,6 +9,7 @@
     --ctp-yellow: var(--ctp-mocha-yellow);
     --ctp-red: var(--ctp-mocha-red);
     --ctp-blue: var(--ctp-mocha-blue);
+    --ctp-green: var(--ctp-mocha-green);
 }
 
 @media (prefers-color-scheme: light) {
@@ -23,6 +24,7 @@
         --ctp-yellow: var(--ctp-latte-yellow);
         --ctp-red: var(--ctp-latte-red);
         --ctp-blue: var(--ctp-latte-blue);
+        --ctp-green: var(--ctp-latte-green);
     }
 }
 
@@ -108,7 +110,7 @@ a {
 }
 
 
-.header>.reddit {
+.header>.misskey {
     grid-area: 🧡;
 }
 
@@ -318,8 +320,8 @@ a {
     font-size: 2.75rem;
 }
 
-.socials.reddit {
-    color: var(--ctp-peach);
+.socials.misskey {
+    color: var(--ctp-green);
 }
 
 .socials.github {
