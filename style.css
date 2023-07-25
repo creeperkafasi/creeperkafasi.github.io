@@ -352,6 +352,17 @@ a {
     animation: bounce 1s ease-in-out infinite;
 }
 
+.project img{
+    width: 100%;
+    max-width: 400px;
+    transition: transform 200ms;
+}
+
+.project img:hover{
+    transform: scale(1.05);
+}
+
+
 .footer {
     margin: 0;
     margin-top: 2rem;
