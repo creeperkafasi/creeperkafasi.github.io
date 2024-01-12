@@ -1,5 +1,5 @@
 var i = -1;
-var txt = 'Deniz Tunç'; /* The text */
+var txt = 'Deniz_Tunç'; /* The text */
 var speed = 100; /* The speed/duration of the effect in milliseconds */
 
 function checkMobile() {
